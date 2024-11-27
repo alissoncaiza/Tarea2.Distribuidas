@@ -1,0 +1,12 @@
+using System;
+
+public class Publisher {
+    public event Action Notify;
+    public void Publish() => Notify?.Invoke();
+}
+
+public class Subscriber {
+    public Subscriber(Publisher publisher) {
+        publisher.Notify += () => Console.WriteLine("Notified!");
+    }
+}

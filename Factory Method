@@ -1,0 +1,16 @@
+interface Product {
+    void create();
+}
+
+class ConcreteProductA implements Product {
+    public void create() {
+        System.out.println("Product A created");
+    }
+}
+
+class Factory {
+    public static Product createProduct(String type) {
+        if (type.equals("A")) return new ConcreteProductA();
+        throw new IllegalArgumentException("Unknown product");
+    }
+}
